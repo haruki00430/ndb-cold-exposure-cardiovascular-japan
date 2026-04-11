@@ -1,0 +1,107 @@
+# NDB_XXX_temperature_CVD 解析設定
+# =====================================================================
+# 変更する際はコードを触らず、このファイルのみ編集する（Config-Driven開発）
+
+project:
+  name: "NDB_XXX_temperature_CVD"
+  description: "気温変動と循環器疾患の地域格差"
+  ndb_round: 10  # NDB Open Data 第10回
+
+# ---------------------------------------------------------------------
+# 解析期間
+# ---------------------------------------------------------------------
+analysis:
+  # NDB Open Data 対象年度
+  ndb_year: 2020  # 第10回 = 令和2年度
+
+  # 気象データ期間（JMA月別）
+  weather_start_year: 2016
+  weather_end_year:   2020
+  weather_months: 60  # 2016/1 〜 2020/12
+
+  # 冬季定義
+  winter_months: [12, 1, 2]
+
+  # 低気温閾値（℃）: この気温以下の月を「寒冷月」とカウント
+  cold_temp_threshold: 5.0
+
+# ---------------------------------------------------------------------
+# 目的変数（循環器疾患）
+# ---------------------------------------------------------------------
+cvd:
+  # 脳卒中系（ICD-10: I60-I69）
+  stroke:
+    # NDB第10回 医薬品分類: 抗血栓薬（脳梗塞慢性期）
+    drug_categories:
+      - "抗血小板薬"       # バイアスピリン等（脳梗塞二次予防）
+      - "抗凝固薬"         # ワルファリン・DOAC（心房細動合併）
+
+  # 心筋梗塞・虚血性心疾患系（ICD-10: I20-I25）
+  ischemic_heart:
+    drug_categories:
+      - "硝酸薬"           # ニトロ製剤
+      - "β遮断薬"
+      - "スタチン"         # 脂質異常症治療薬（冠動脈疾患リスク管理）
+
+  # 高血圧（循環器疾患の代理指標として追加解析用）
+  hypertension:
+    drug_categories:
+      - "Ca拮抗薬"
+      - "ARB"
+      - "ACE阻害薬"
+      - "利尿薬（降圧）"
+
+# ---------------------------------------------------------------------
+# 主要説明変数（気象）
+# ---------------------------------------------------------------------
+weather_variables:
+  primary:
+    - name: "Temp_range_annual"
+      description: "年間気温較差（最高月平均－最低月平均、℃）"
+    - name: "Winter_temp_avg"
+      description: "冬季平均気温（12〜2月、℃）"
+    - name: "Temp_std"
+      description: "月別平均気温の標準偏差（変動指標）"
+    - name: "Cold_months_ratio"
+      description: "月平均気温<5℃の月数 / 全月数"
+  secondary:
+    - name: "Mean_Temp_avg"
+      description: "年間平均気温（℃）"
+    - name: "Sunshine_hours_annual"
+      description: "年間日照時間（時間/年）"
+
+# ---------------------------------------------------------------------
+# 共変量（交絡因子）
+# ---------------------------------------------------------------------
+covariates:
+  demographic:
+    - "elderly_ratio"        # 65歳以上人口割合（国勢調査2020）
+    - "population_density"   # 人口密度（人/km²）
+  socioeconomic:
+    - "taxable_income_per_capita"  # 課税対象所得（SESデータ）
+    - "unemployment_rate"          # 完全失業率（国勢調査）
+  medical_access:
+    - "physicians_per_100k"        # 人口10万対医師数
+
+# ---------------------------------------------------------------------
+# 空間解析設定
+# ---------------------------------------------------------------------
+spatial:
+  # GeoJSON（都道府県境界）
+  geojson_path: "../../02_Data/raw/GIS/japan.geojson"
+  id_column: "N03_007"  # 都道府県コード
+
+  # Moran's I 有意水準
+  morans_i_permutations: 999
+  significance_threshold: 0.05
+
+  # 空間重み行列タイプ
+  weights_type: "queen"  # queen or rook
+
+# ---------------------------------------------------------------------
+# 出力設定
+# ---------------------------------------------------------------------
+output:
+  figures_dpi: 300
+  figure_format: "png"
+  font_family: "IPAexGothic"  # 日本語フォント（ndb_library.viz経由）

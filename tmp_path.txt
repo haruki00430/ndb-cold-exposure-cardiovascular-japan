@@ -1,0 +1,3 @@
+﻿C:\Users\user\SharedWorkspace\projects\NDB_Research_Hub\02_Data\raw\NDB_OpenData\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方薬（内服／外用／注射）\【内服】外来（院外）_都道府県別薬効分類別数量.xlsx
+C:\Users\user\SharedWorkspace\projects\NDB_Research_Hub\02_Data\raw\NDB_OpenData\No.10\05_処方薬\01_公費レセプトを含まないデータ\02_処方薬（医科／歯科）\【内服】外来（院外）_都道府県別薬効分類別数量_医科.xlsx
+C:\Users\user\SharedWorkspace\projects\NDB_Research_Hub\02_Data\raw\NDB_OpenData\No.10\05_処方薬\01_公費レセプトを含まないデータ\02_処方薬（医科／歯科）\【内服】外来（院外）_都道府県別薬効分類別数量_歯科.xlsx

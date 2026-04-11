@@ -1,0 +1,130 @@
+﻿
+
+Name : 【内服】入院_性年齢別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【内服】入院_診療月別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【内服】入院_都道府県別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【内服】外来（院内）_性年齢別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【内服】外来（院内）_診療月別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【内服】外来（院内）_都道府県別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【内服】外来（院外）_性年齢別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【内服】外来（院外）_診療月別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【内服】外来（院外）_都道府県別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【外用】性年齢別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【外用】診療月別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【外用】都道府県別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【注射】性年齢別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【注射】診療月別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【注射】都道府県別薬効分類別数量.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\01_処方
+       薬（内服／外用／注射）
+
+Name : 【内服】外来（院外）_性年齢別薬効分類別数量_医科.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\02_処方
+       薬（医科／歯科）
+
+Name : 【内服】外来（院外）_性年齢別薬効分類別数量_歯科.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\02_処方
+       薬（医科／歯科）
+
+Name : 【内服】外来（院外）_都道府県別薬効分類別数量_医科.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\02_処方
+       薬（医科／歯科）
+
+Name : 【内服】外来（院外）_都道府県別薬効分類別数量_歯科.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\02_処方
+       薬（医科／歯科）
+
+Name : 【歯科用薬剤】_性年齢別薬効分類別数量_歯科.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\02_処方
+       薬（医科／歯科）
+
+Name : 【歯科用薬剤】_都道府県別薬効分類別数量_歯科.xlsx
+Dir  : C:\Users\user\SharedWorkspace\projects\
+       NDB_Research_Hub\02_Data\raw\NDB_OpenDa
+       ta\No.10\05_処方薬\01_公費レセプトを含まないデータ\02_処方
+       薬（医科／歯科）
+
+
+
