@@ -1,3 +1,5 @@
+﻿> **正本リポジトリ（GitHub Private）：** https://github.com/haruki00430/NDB_XXX_temperature_CVD
+
 # NDB_XXX_temperature_CVD
 ## 気温変動と循環器疾患の地域格差：NDBオープンデータによる都道府県別空間疫学解析
 
