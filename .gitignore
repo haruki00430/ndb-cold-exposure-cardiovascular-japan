@@ -51,3 +51,9 @@ nul
 *.zip
 *.7z
 *.pkl
+
+# 国土数値情報など数百 MB 超（GitHub 100MB 制限）
+data/raw/MLIT_N03/
+**/MLIT_N03/
+data/raw/**/*.xml
+data/temp/**/*.xml
