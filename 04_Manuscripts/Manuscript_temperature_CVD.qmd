@@ -16,6 +16,8 @@ format:
   docx:
     toc: false
     number-sections: false
+bibliography: ../references.bib
+csl: ../vancouver.csl
 ---
 
 ---
@@ -43,6 +45,9 @@ The mean CVD prescription rate across prefectures was 17,521,396 ± 2,607,830 pe
 Cold month exposure was independently and strongly associated with higher CVD prescription rates across Japanese prefectures, alongside aging rate and unemployment rate. These findings suggest that prefectures with prolonged cold seasons bear a disproportionate CVD pharmaceutical burden, warranting targeted seasonal prevention strategies and healthcare resource allocation.
 
 **Keywords**: cold exposure; cardiovascular disease; prescription rate; ecological study; NDB Open Data; Japan
+
+
+**Keywords:** ecological study; Japan; health insurance claims
 
 ---
 
