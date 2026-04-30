@@ -1,0 +1,5 @@
+## Data and Code Transparency (Preprint)
+
+- NDB Open Data No.10 is publicly available at the Ministry of Health, Labour and Welfare website.
+- Analysis scripts for this study will be made available in a public repository after internal review.
+- No individual-level records were used in this analysis.

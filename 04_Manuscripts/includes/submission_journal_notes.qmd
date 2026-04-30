@@ -1,0 +1,9 @@
+## Journal-Specific Notes
+
+This section is intentionally kept as a placeholder for submission-only elements:
+
+- journal-required declarations and formatting notes
+- cover letter alignment notes
+- blinded or non-blinded author metadata handling
+
+Remove this section from the final submission if the target journal does not allow it in the manuscript body.

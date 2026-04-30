@@ -1,0 +1,21 @@
+---
+title: "Association between Cold Month Exposure and Cardiovascular Disease Prescription Rate: A Nationwide Ecological Study in Japan"
+license: "CC BY 4.0"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    embed-resources: true
+  docx:
+    toc: false
+    number-sections: false
+bibliography: ../references.bib
+csl: ../vancouver.csl
+---
+
+{{< include ../includes/preprint_disclaimer.qmd >}}
+
+{{< include ../core/manuscript_core.qmd >}}
+
+{{< include ../includes/data_transparency.qmd >}}

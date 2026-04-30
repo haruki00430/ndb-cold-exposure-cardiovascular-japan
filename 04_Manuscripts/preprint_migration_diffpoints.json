@@ -1,0 +1,13 @@
+{
+  "project_name": "NDB_XXX_temperature_CVD",
+  "manuscript_file": "C:\\Users\\user\\SharedWorkspace\\projects\\NDB_Research_Hub\\projects\\NDB_XXX_temperature_CVD\\04_Manuscripts\\Manuscript_temperature_CVD.qmd",
+  "title": "Association between Cold Month Exposure and Cardiovascular Disease Prescription Rate: A Nationwide Ecological Study in Japan",
+  "has_author_block": true,
+  "has_date": true,
+  "bibliography_value": "../references.bib",
+  "csl_value": "../vancouver.csl",
+  "has_format_block": true,
+  "has_keywords_line": true,
+  "needs_bibliography_path_fix": false,
+  "needs_csl_path_fix": false
+}
