@@ -3,7 +3,7 @@
 **Project:** `ndb-cold-exposure-cardiovascular-japan`  
 **Manuscript:** *Association between Cold Month Exposure and Cardiovascular Disease Prescription Rate: A Nationwide Ecological Study in Japan*  
 **Repository:** https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan  
-**Archive DOI:** `10.5281/zenodo.XXXXXXX` — replace after Zenodo registration.
+**Archive DOI:** `10.5281/zenodo.20997811`.
 
 This guide describes how to reproduce the **prefecture-level aggregated analysis (N = 47)** reported in the manuscript.  
 本書は論文に報告した **47都道府県の集計解析** を再現する手順です。
@@ -151,7 +151,7 @@ python 08_percapita_choropleth.py
 
 If you use this repository, please cite:
 
-- **Code/data archive:** Saito H, Ohira T. *ndb-cold-exposure-cardiovascular-japan* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+- **Code/data archive:** Saito H, Ohira T. *ndb-cold-exposure-cardiovascular-japan* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20997811
 - **Original paper:** Saito H, Ohira T. Association between Cold Month Exposure and Cardiovascular Disease Prescription Rate: A Nationwide Ecological Study in Japan. *Osong Public Health and Research Perspectives.* 2026. (under review)
 
 See also `CITATION.cff` for machine-readable citation metadata.

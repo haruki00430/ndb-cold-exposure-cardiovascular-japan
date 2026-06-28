@@ -7,7 +7,7 @@ date-released: 2026-06-28
 license: CC-BY-NC-ND-4.0
 url: "https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan"
 repository-code: "https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan"
-doi: 10.5281/zenodo.XXXXXXX  # replace after Zenodo registration
+doi: 10.5281/zenodo.20997811
 abstract: >-
   Reproducible analysis code for a prefecture-level ecological study (N = 47)
   examining the association between cold month exposure (proportion of months
@@ -45,4 +45,4 @@ preferred-citation:
   journal: "Osong Public Health and Research Perspectives"
   year: 2026
   notes: "Manuscript under review; update volume/pages/DOI when published."
-  doi: 10.5281/zenodo.XXXXXXX  # replace with journal DOI after acceptance
+  doi: 10.5281/zenodo.20997811  # update with journal DOI after acceptance
