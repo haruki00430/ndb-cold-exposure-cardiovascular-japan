@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this code or the derived datasets, please cite as below."
+type: software
+title: "Cold Month Exposure and Cardiovascular Disease Prescription Rate: Analysis Code (NDB Open Data, Japan)"
+version: 1.0.0
+date-released: 2026-06-28
+license: CC-BY-NC-ND-4.0
+url: "https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan"
+repository-code: "https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan"
+doi: 10.5281/zenodo.XXXXXXX  # replace after Zenodo registration
+abstract: >-
+  Reproducible analysis code for a prefecture-level ecological study (N = 47)
+  examining the association between cold month exposure (proportion of months
+  with mean temperature <10 °C) and cardiovascular disease prescription rates
+  in Japan, using NDB Open Data (10th release, FY2023) and Japan Meteorological
+  Agency climate data (reference period 2016–2020).
+keywords:
+  - cardiovascular disease
+  - cold exposure
+  - NDB Open Data
+  - Japan
+  - ecological study
+  - prescription rate
+  - spatial analysis
+  - epidemiology
+authors:
+  - family-names: Saito
+    given-names: Haruki
+    affiliation: "Department of Epidemiology, Fukushima Medical University School of Medicine"
+    orcid: "https://orcid.org/0009-0009-7890-6068"
+  - family-names: Ohira
+    given-names: Tetsuya
+    affiliation: "Department of Epidemiology, Fukushima Medical University School of Medicine"
+    orcid: "https://orcid.org/0000-0003-4532-7165"
+preferred-citation:
+  type: article
+  title: >-
+    Association between Cold Month Exposure and Cardiovascular Disease
+    Prescription Rate: A Nationwide Ecological Study in Japan
+  authors:
+    - family-names: Saito
+      given-names: Haruki
+    - family-names: Ohira
+      given-names: Tetsuya
+  journal: "Osong Public Health and Research Perspectives"
+  year: 2026
+  notes: "Manuscript under review; update volume/pages/DOI when published."
+  doi: 10.5281/zenodo.XXXXXXX  # replace with journal DOI after acceptance

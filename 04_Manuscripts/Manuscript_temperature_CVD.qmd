@@ -34,7 +34,7 @@ We examined whether cold month exposure was associated with prefectural-level CV
 
 ## Methods
 
-We conducted a nationwide ecological study using 47 Japanese prefectures as the unit of analysis. CVD prescription rates (per 100,000 population) were derived from the 10th National Database (NDB) Open Data (fiscal year 2020) and standardized by 2020 National Census population. Cold month ratio (proportion of months with mean temperature <10°C) was calculated from Japan Meteorological Agency data. Covariates included physicians per 100,000, unemployment rate, aging rate, and per capita prefectural income. Multivariable ordinary least squares (OLS) regression was used. Spatial autocorrelation was assessed using Global Moran's I.
+We conducted a nationwide ecological study using 47 Japanese prefectures as the unit of analysis. CVD prescription rates (per 100,000 population) were derived from the 10th National Database (NDB) Open Data (fiscal year 2023) and standardized by 2020 National Census population. Cold month ratio (proportion of months with mean temperature <10°C) was calculated from Japan Meteorological Agency data. Covariates included physicians per 100,000, unemployment rate, aging rate, and per capita prefectural income. Multivariable ordinary least squares (OLS) regression was used. Spatial autocorrelation was assessed using Global Moran's I.
 
 ## Results
 
@@ -69,11 +69,11 @@ In this study, we examined whether cold month ratio was associated with prefectu
 
 ## 1. Study Design
 
-We conducted a nationwide ecological study in which the Japanese prefecture (N = 47) served as the unit of analysis. Prefecture-level aggregate data were used because individual-level geographic information is not available from NDB Open Data. The study period corresponded to fiscal year 2020 (April 2020 through March 2021).
+We conducted a nationwide ecological study in which the Japanese prefecture (N = 47) served as the unit of analysis. Prefecture-level aggregate data were used because individual-level geographic information is not available from NDB Open Data. The study period corresponded to fiscal year 2023 (April 2023 through March 2024).
 
 ## 2. Outcome: CVD Prescription Rate
 
-CVD prescription volume (total quantity) was derived from the 10th NDB Open Data (released 2023), which contains prefecture-level counts of pharmaceutical prescriptions for cardiovascular-related drug categories claimed under the national health insurance system. Drug categories included antihypertensives, anticoagulants, vasodilators, antihyperlipidemic agents, and other cardiovascular drugs. Prescription rates were calculated per 100,000 population using the 2020 National Census population for each prefecture.
+CVD prescription volume (total quantity) was derived from the 10th NDB Open Data (released 2025), which contains prefecture-level counts of pharmaceutical prescriptions for cardiovascular-related drug categories claimed under the national health insurance system. Drug categories included antihypertensives, anticoagulants, vasodilators, antihyperlipidemic agents, and other cardiovascular drugs. Prescription rates were calculated per 100,000 population using the 2020 National Census population for each prefecture.
 
 ## 3. Exposure: Cold Month Ratio
 

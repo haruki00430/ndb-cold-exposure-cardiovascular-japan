@@ -47,6 +47,13 @@ nul
 *.shx
 *.prj
 
+# 一時ファイル・作業用テキスト
+tmp_*.txt
+tmp_*.json
+run_err*.log
+run_error.log
+run_verify.log
+
 # 大容量アーカイブ・生データ（再ダウンロードで再現）
 *.zip
 *.7z

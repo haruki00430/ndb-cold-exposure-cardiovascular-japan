@@ -1,111 +1,176 @@
-﻿> **正本リポジトリ（GitHub Private）：** https://github.com/haruki00430/NDB_XXX_temperature_CVD
+# ndb-cold-exposure-cardiovascular-japan
 
-# NDB_XXX_temperature_CVD
-## 気温変動と循環器疾患の地域格差：NDBオープンデータによる都道府県別空間疫学解析
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-**ステータス**: 進行中 (In Progress)
-**開始日**: 2026-03-03
+**[Japanese version: README_ja.md](README_ja.md)**
 
-## ステータス（2026-04-05 リポジトリ照合）
+## Overview
 
-- **原稿**: `04_Manuscripts/Manuscript_temperature_CVD.qmd`
-- **備考**: 上記「進行中」表記と `analysis/`・結果ファイルの実体がずれる場合は実体を正とする。
+This repository contains the analysis code and supplementary materials for the following manuscript:
+
+> **Saito H, Ohira T.** "Association between Cold Month Exposure and Cardiovascular Disease Prescription Rate: A Nationwide Ecological Study in Japan." *Osong Public Health and Research Perspectives* (submitted, June 2026).
+
+### Key Findings
+
+- **Cold month ratio** (proportion of months with mean temperature <10°C) was the strongest predictor of prefectural CVD prescription rates among five temperature indicators (univariable R² = 0.390, *p* < 0.001).
+- In multivariable OLS regression (adjusted R² = 0.626), **cold month ratio**, **aging rate**, and **unemployment rate** were independently significant.
+- Per-capita CVD prescription rates showed **no significant spatial autocorrelation** (Global Moran's I = 0.091, *p* = 0.114), validating the OLS approach.
+- Prefectures with prolonged cold seasons bear a **disproportionate cardiovascular pharmaceutical burden**.
 
 ---
 
-## 概要
+## Data Sources
 
-気温の季節変動・日較差が脳卒中（I60-I69）・心筋梗塞（I20-I25）の受診率に与える影響を、
-都道府県レベルの空間疫学手法で定量化する。
+| Data | Source | Description |
+|------|--------|-------------|
+| NDB Open Data (10th release, released May 2025) | Ministry of Health, Labour and Welfare, Japan | Prefecture-level CVD prescription counts, FY2023 |
+| Climate data (reference period) | Japan Meteorological Agency (JMA) | Monthly mean temperature by prefecture, 2016–2020 |
+| Population | 2020 National Census (Statistics Bureau) | Population by prefecture for rate standardization |
+| Socioeconomic | Cabinet Office, MIC, MHLW | Income, unemployment, aging rate, physician density |
 
-NDB Open Dataの処方・医療処置データと気象庁（JMA）の月別気象データを結合し、
-社会経済指標を調整した上で、気温変動と循環器疾患受診格差の関係を検証する。
+> **Note**: NDB raw data cannot be redistributed. Please download directly from [MHLW website](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000177221_00001.html). JMA climate data are freely available at [JMA website](https://www.jma.go.jp/).
 
-## 研究仮説
+---
 
-- **主仮説**: 気温較差（年間・冬季）が大きい都道府県ほど、循環器疾患の標準化受診比（SCR）が高い
-- **副仮説**: この関連は高齢化率・所得水準・医療アクセスで一部説明される
-
-## データソース
-
-| データ | ソース | 内容 |
-|--------|--------|------|
-| NDB Open Data 第10回 | 厚生労働省 | 循環器薬（降圧薬・抗血栓薬）処方数 |
-| 気象月別データ | 気象庁（JMA） | 月別気温・降水量・日照時間（47地点） |
-| 国勢調査2020 | 統計局 | 性・年齢別人口（標準化用） |
-| 社会生活統計指標 | 総務省 | 所得・失業率・教育水準 |
-| GIS | MLIT / 共有 | 都道府県境界 (`japan.geojson`) |
-
-## 気象変数（主要）
-
-- `Temp_range_annual`: 年間気温較差（最高－最低、℃）
-- `Winter_temp_avg`: 冬季平均気温（12〜2月、℃）
-- `Temp_std`: 月別平均気温の標準偏差（変動指標）
-- `Cold_months_ratio`: 月平均気温＜5℃ の月数比率
-
-## 転用元パイプライン
-
-`NDB_XXX_rainfall_depression` の気象データ取得・前処理スクリプトを再利用。
-
-## ディレクトリ構成
+## Repository Structure
 
 ```
-NDB_XXX_temperature_CVD/
-├── README.md
+ndb-cold-exposure-cardiovascular-japan/
+├── README.md                    # This file (English)
+├── README_ja.md                 # Japanese version
 ├── config/
-│   └── config.yaml          # 解析設定（薬剤コード・期間・閾値）
+│   └── config.yaml              # Analysis configuration (drug codes, thresholds)
 ├── 03_Analysis/
 │   └── scripts/
-│       ├── 00_preprocess_jma_data.py    # JMA CSV前処理（横長→縦長）
-│       ├── 01_fetch_weather_data.py     # 気象変数集計（都道府県別）
-│       ├── 02_extract_cvd_data.py       # NDB循環器データ抽出
-│       ├── 03_integrate_data.py         # データ統合
-│       ├── 04_descriptive_analysis.py   # 記述統計・相関分析
-│       ├── 05_regression_analysis.py    # 重回帰分析
-│       ├── 06_spatial_analysis.py       # 空間自己相関・空間回帰
-│       └── 07_sensitivity_analysis.py   # 感度分析
+│       ├── 00_preprocess_jma_data.py    # JMA CSV preprocessing
+│       ├── 01_fetch_weather_data.py     # Climate variable aggregation
+│       ├── 02_extract_cvd_data.py       # CVD drug extraction from NDB
+│       ├── 03_integrate_data.py         # Data integration
+│       ├── 03b_collect_ses_data.py      # SES data collection
+│       ├── 04_descriptive_analysis.py   # Descriptive statistics, correlation
+│       ├── 05_regression_analysis.py    # OLS regression, model selection
+│       ├── 06_spatial_analysis.py       # Moran's I, LISA cluster analysis
+│       ├── 07_percapita_reanalysis.py   # Per-capita standardization
+│       └── 08_percapita_choropleth.py   # Choropleth map generation
 ├── 04_Manuscripts/
-│   └── Manuscript_temperature_CVD.qmd
+│   ├── Manuscript_temperature_CVD.qmd   # Quarto source
+│   ├── references.bib                   # Bibliography
+│   └── submission_package_phrp/         # PHRP submission files
 ├── data/
-│   ├── raw/
-│   │   └── weather/                     # JMA CSVを配置
-│   └── interim/                         # 処理済み中間データ
+│   ├── raw/weather/                     # JMA CSV (not redistributed)
+│   └── interim/                         # Processed intermediate data
 ├── results/
-│   └── figures/
-├── docs/
-│   └── DATA_SOURCES.md
-└── logs/
+│   └── figures/                         # Generated figures
+└── docs/
+    └── DATA_SOURCES.md                  # Data source documentation
 ```
 
-## 解析フロー
+---
+
+## Analysis Pipeline
 
 ```
-JMA CSV (Shift-JIS) → 00_preprocess → 01_aggregate
-NDB Excel          → 02_extract
-国勢調査/SES       → (共有データ再利用)
-                       ↓
-                    03_integrate → analysis_dataset.csv
-                       ↓
-          04_descriptive → 05_regression → 06_spatial → 07_sensitivity
-                       ↓
-               Manuscript_temperature_CVD.qmd
+JMA CSV (raw) ──→ 00_preprocess ──→ 01_aggregate ──┐
+NDB Excel (raw) ──→ 02_extract ──────────────────────┤
+SES data ──→ 03b_collect ──────────────────────────────┤
+                                                       ↓
+                                            03_integrate → analysis_dataset.csv
+                                                       ↓
+                              04_descriptive → 05_regression → 06_spatial
+                                                       ↓
+                              07_percapita_reanalysis → 08_choropleth
+                                                       ↓
+                                         Manuscript_temperature_CVD.qmd
 ```
 
-## 実行方法
+---
+
+## Environment Setup
 
 ```bash
-# 仮想環境を有効化
-.venv\Scripts\activate
+# Clone repository
+git clone https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan.git
+cd ndb-cold-exposure-cardiovascular-japan
 
-# Phase 0-1: 気象データ準備（JMA CSVをdata/raw/weather/に配置後）
+# Create virtual environment
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+# source .venv/bin/activate  # macOS/Linux
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Requirements
+
+- Python 3.11+
+- pandas, numpy, scipy
+- statsmodels, scikit-learn
+- geopandas, PySAL (libpysal, esda, spreg)
+- matplotlib, seaborn
+- python-docx, quarto (for manuscript rendering)
+
+---
+
+## Reproducing Results
+
+```bash
+# Step 1: Preprocess JMA climate data (place JMA CSVs in data/raw/weather/ first)
 python 03_Analysis/scripts/00_preprocess_jma_data.py
 python 03_Analysis/scripts/01_fetch_weather_data.py
 
-# Phase 2: NDBデータ抽出
+# Step 2: Extract CVD data from NDB (place NDB Excel files in data/raw/ first)
 python 03_Analysis/scripts/02_extract_cvd_data.py
 
-# Phase 3以降
+# Step 3: Integrate datasets
 python 03_Analysis/scripts/03_integrate_data.py
+python 03_Analysis/scripts/03b_collect_ses_data.py
+
+# Step 4: Analysis
 python 03_Analysis/scripts/04_descriptive_analysis.py
 python 03_Analysis/scripts/05_regression_analysis.py
+python 03_Analysis/scripts/06_spatial_analysis.py
+
+# Step 5: Per-capita analysis (primary)
+python 03_Analysis/scripts/07_percapita_reanalysis.py
+python 03_Analysis/scripts/08_percapita_choropleth.py
 ```
+
+---
+
+## Citation
+
+If you use this code, please cite:
+
+```bibtex
+@article{saito2026cold,
+  title   = {Association between Cold Month Exposure and Cardiovascular Disease 
+             Prescription Rate: A Nationwide Ecological Study in Japan},
+  author  = {Saito, Haruki and Ohira, Tetsuya},
+  journal = {Osong Public Health and Research Perspectives},
+  year    = {2026},
+  note    = {Submitted}
+}
+```
+
+---
+
+## Ethics
+
+This study used only publicly available aggregate data (NDB Open Data) and did not involve individual patient data. Ethics review was not required under the Japanese Ethical Guidelines for Life Science and Medical Research Involving Human Subjects.
+
+---
+
+## License
+
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+This repository is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+---
+
+## Authors
+
+- **Haruki Saito** (Corresponding Author) — Department of Epidemiology, Fukushima Medical University School of Medicine, Japan — ORCID: [0009-0009-7890-6068](https://orcid.org/0009-0009-7890-6068)
+- **Tetsuya Ohira** — Department of Epidemiology, Fukushima Medical University School of Medicine, Japan — ORCID: [0000-0003-4532-7165](https://orcid.org/0000-0003-4532-7165)
