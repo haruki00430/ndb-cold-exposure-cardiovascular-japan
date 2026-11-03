@@ -26,7 +26,7 @@ This repository contains the analysis code, processed data, and supplementary ma
 
 | Data | Source | Description |
 |------|--------|-------------|
-| NDB Open Data (10th release, released May 2025) | Ministry of Health, Labour and Welfare, Japan | Prefecture-level CVD prescription counts, FY2023 |
+| NDB Open Data (10th release, released May 2025) | Ministry of Health, Labour and Welfare, Japan | Prefecture-level quantities of cardiovascular tablets dispensed (five drug categories), FY2023; revised outcome = tablets per resident |
 | Climate data (reference period) | Japan Meteorological Agency (JMA) | Monthly mean temperature by prefecture, 2016–2020 |
 | Population | Population Estimates, 1 October 2023 (Statistics Bureau) | Denominator and age-sex structure (revision); the initial analysis used the 2020 Census |
 | Socioeconomic | Cabinet Office, MIC, MHLW | Income (FY2022), unemployment (Labour Force Survey 2023), aging rate (2023), physicians in medical facilities (2022) |
