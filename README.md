@@ -1,22 +1,24 @@
 # ndb-cold-exposure-cardiovascular-japan
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20997811.svg)](https://doi.org/10.5281/zenodo.20997811)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20997810.svg)](https://doi.org/10.5281/zenodo.20997810)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 **[Japanese version: README_ja.md](README_ja.md)**
 
 ## Overview
 
-This repository contains the analysis code and supplementary materials for the following manuscript:
+This repository contains the analysis code, processed data, and supplementary materials for the following manuscript (under review):
 
-> **Saito H, Ohira T.** "Association between Cold Month Exposure and Cardiovascular Disease Prescription Rate: A Nationwide Ecological Study in Japan." *Osong Public Health and Research Perspectives* (submitted, June 2026).
+> **Saito H, Ohira T.** "Cold-Season Duration and Cardiovascular Drug Dispensing Across Japanese Prefectures: A Nationwide Ecological Study." *Osong Public Health and Research Perspectives* (revision under review; manuscript ID OPHRP-2026-0484).
 
-### Key Findings
+> **Important — corrected release (v1.1.0).** Release v1.0.0 and the first submission contained errors (the cold-month threshold was reported as 10 °C but is 5 °C over 60 months; a row-order misalignment made the spatial autocorrelation appear absent). They are documented in [CORRECTIONS.md](CORRECTIONS.md) and corrected in [`revision_R1/`](revision_R1/). Please do not use the results of v1.0.0.
 
-- **Cold month ratio** (proportion of months with mean temperature <10°C) was the strongest predictor of prefectural CVD prescription rates among five temperature indicators (univariable R² = 0.390, *p* < 0.001).
-- In multivariable OLS regression (adjusted R² = 0.626), **cold month ratio**, **aging rate**, and **unemployment rate** were independently significant.
-- Per-capita CVD prescription rates showed **no significant spatial autocorrelation** (Global Moran's I = 0.091, *p* = 0.114), validating the OLS approach.
-- Prefectures with prolonged cold seasons bear a **disproportionate cardiovascular pharmaceutical burden**.
+### Key Findings (revised; exploratory and model-dependent)
+
+- **Cold month ratio** = proportion of the 60 months (2016–2020) with mean temperature **< 5 °C** (one Japan Meteorological Agency station per prefecture). Outcome = cardiovascular **tablets** dispensed per resident, fiscal year 2023 (10th NDB Open Data, five drug categories).
+- In OLS (HC3), each additional cold month per year was associated with **+6.1 tablets per resident per year** (95% CI 2.0 to 10.2; p = 0.004; adjusted R² = 0.69).
+- The OLS residuals were **spatially autocorrelated** (Moran's I = 0.29). The association was not significant in the spatial lag model (coefficient +1.7, p = 0.46; total effect +2.9, 95% interval −6.6 to 9.1) but was in the spatial error model (+5.1, p = 0.041), and it was attenuated after adjustment for smoking.
+- The findings are exploratory and do not establish causation.
 
 ---
 
@@ -26,14 +28,16 @@ This repository contains the analysis code and supplementary materials for the f
 |------|--------|-------------|
 | NDB Open Data (10th release, released May 2025) | Ministry of Health, Labour and Welfare, Japan | Prefecture-level CVD prescription counts, FY2023 |
 | Climate data (reference period) | Japan Meteorological Agency (JMA) | Monthly mean temperature by prefecture, 2016–2020 |
-| Population | 2020 National Census (Statistics Bureau) | Population by prefecture for rate standardization |
-| Socioeconomic | Cabinet Office, MIC, MHLW | Income, unemployment, aging rate, physician density |
+| Population | Population Estimates, 1 October 2023 (Statistics Bureau) | Denominator and age-sex structure (revision); the initial analysis used the 2020 Census |
+| Socioeconomic | Cabinet Office, MIC, MHLW | Income (FY2022), unemployment (Labour Force Survey 2023), aging rate (2023), physicians in medical facilities (2022) |
 
 > **Note**: NDB raw data cannot be redistributed. Please download directly from [MHLW website](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000177221_00001.html). JMA climate data are freely available at [JMA website](https://www.jma.go.jp/).
 
 ---
 
 ## Repository Structure
+
+`revision_R1/` contains the revised analysis (v1.1.0; see [revision_R1/README.md](revision_R1/README.md)). The scripts in `03_Analysis/scripts/` are the **initial analysis**; `07_percapita_reanalysis.py` and the files under `results/` are superseded.
 
 ```
 ndb-cold-exposure-cardiovascular-japan/
@@ -141,16 +145,15 @@ python 03_Analysis/scripts/08_percapita_choropleth.py
 
 ## Citation
 
-If you use this code, please cite:
+If you use this code, please cite the archived release (see CITATION.cff; the concept DOI [10.5281/zenodo.20997810](https://doi.org/10.5281/zenodo.20997810) always resolves to the latest version) and the manuscript once published:
 
 ```bibtex
 @article{saito2026cold,
-  title   = {Association between Cold Month Exposure and Cardiovascular Disease 
-             Prescription Rate: A Nationwide Ecological Study in Japan},
+  title   = {Cold-Season Duration and Cardiovascular Drug Dispensing Across Japanese Prefectures: A Nationwide Ecological Study},
   author  = {Saito, Haruki and Ohira, Tetsuya},
   journal = {Osong Public Health and Research Perspectives},
   year    = {2026},
-  note    = {Submitted}
+  note    = {Under review}
 }
 ```
 

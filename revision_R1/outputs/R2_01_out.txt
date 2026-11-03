@@ -1,0 +1,75 @@
+仕様書 SHA256: bc8c2d00098a4145605d38361828eff1fe92aa9e22ce8a445ddb4f5012ce0ab8
+======================================================================
+主モデル (P): 錠/人/年 ~ 寒冷月比率(<5℃,2016-20) + 高齢化2023 + 医師2022 + 失業2023 + 所得FY2022; n=47
+  アウトカム mean=168.0 SD=26.6 錠/人/年; 比率 mean=0.087 SD=0.105
+  OLS(HC3): 比率 β=72.9 [95%CI 23.7, 122.0] p=0.0037; 標準化β=0.288
+  1か月/年あたり β=6.07 [1.98, 10.17] 錠/人/年 (3.6% of mean); 1SDあたり 7.7
+  R2=0.727 adjR2=0.694 F=21.83; VIF max=2.60; BP p=0.237; Shapiro p=0.907
+    Aging rate (%)                     β=6.537 p(HC3)=0.0000
+    Physicians per 100,000             β=-0.128 p(HC3)=0.1806
+    Unemployment rate (%)              β=16.202 p(HC3)=0.1062
+    Per capita income (10,000 yen)     β=0.070 p(HC3)=0.6867
+  Cook's D>4/n: ['Tokyo', 'Okinawa', 'Shimane', 'Fukui'] (max Tokyo=2.959)
+----------------------------------------------------------------------
+空間（k=4, 大圏距離）
+  Moran I(アウトカム)=0.558 (z=6.72, p=0.0010); 曝露 I=0.798 (p=0.0010)
+  残差 Moran I=0.291 (p=0.0000); LM-lag p=0.0005, LM-err p=0.0018, RLM-lag p=0.0721, RLM-err p=0.3755 → 選択: SLM
+  SLM: 1か月あたり β=1.65 p=0.4642 rho=0.42 (p=0.0007); SEM: β=5.06 p=0.0412 lambda=0.55 (p=0.0001)
+  LISA(p<0.05): [('Hokkaido', 'High-High'), ('Aomori', 'High-High'), ('Iwate', 'High-High'), ('Miyagi', 'High-High'), ('Akita', 'High-High'), ('Yamagata', 'High-High'), ('Fukushima', 'High-High'), ('Mie', 'Low-Low'), ('Shiga', 'Low-Low'), ('Kyoto', 'Low-Low'), ('Osaka', 'Low-Low'), ('Hyogo', 'Low-Low'), ('Nara', 'Low-Low'), ('Wakayama', 'Low-Low')]
+  k=3: 残差I=0.267 LMlag p=0.0055 LMerr p=0.0118 RLMlag p=0.1918 RLMerr p=0.5573 選択=SLM | SLM p=0.3592 SEM p=0.0250
+  k=4: 残差I=0.291 LMlag p=0.0005 LMerr p=0.0018 RLMlag p=0.0721 RLMerr p=0.3755 選択=SLM | SLM p=0.4642 SEM p=0.0412
+  k=5: 残差I=0.281 LMlag p=0.0002 LMerr p=0.0010 RLMlag p=0.0614 RLMerr p=0.3311 選択=SLM | SLM p=0.3893 SEM p=0.0483
+  k=6: 残差I=0.243 LMlag p=0.0004 LMerr p=0.0017 RLMlag p=0.0513 RLMerr p=0.3444 選択=SLM | SLM p=0.2775 SEM p=0.0225
+----------------------------------------------------------------------
+感度分析
+  指標 Cold month ratio (<5°C)          std β=+0.288 p(HC3)=0.0037 BH=0.0184 adjR2=0.694
+  指標 Mean annual temperature          std β=-0.222 p(HC3)=0.1033 BH=0.2582 adjR2=0.668
+  指標 Winter mean temperature          std β=-0.142 p(HC3)=0.3590 BH=0.5984 adjR2=0.651
+  指標 Temperature variability (SD)     std β=-0.030 p(HC3)=0.8365 BH=0.8365 adjR2=0.639
+  指標 Annual temperature range         std β=-0.063 p(HC3)=0.6971 BH=0.8365 adjR2=0.641
+  除外 All 47 prefectures                           n=47 OLS p=0.0037 選択=SLM SLM p=0.4642 SEM p=0.0412
+  除外 Excluding Cook's D > 4/n                     n=43 OLS p=0.0004 選択=SLM SLM p=0.3031 SEM p=0.0501
+  除外 Excluding highest Cook's D (Tokyo)           n=46 OLS p=0.0027 選択=SLM SLM p=0.4051 SEM p=0.0369
+  除外 Excluding Hokkaido and Okinawa               n=45 OLS p=0.0060 選択=SLM SLM p=0.3160 SEM p=0.0277
+  除外 Excluding Tokyo                              n=46 OLS p=0.0027 選択=SLM SLM p=0.4051 SEM p=0.0369
+  LOO: p範囲 0.0007〜0.0104, 全てp<0.05=True
+  元の完全設定: {'std_beta': 0.4212, 'ols_hc3_p': 0.0, 'adj_r2': 0.626, 'r2': 0.6666, 'beta': 10450255.1506, 'slm_p': 0.1488, 'sem_p': 0.0295, 'selected': 'SLM', 'lm_lag_p': 0.001, 'lm_err_p': 0.003, 'moran_res': 0.2762, 'moran_res_p': 0.0}
+  --- 仕様グリッド（std β / OLS p / 選択モデルのp）---
+    tablets, 5 categories (primary)   | <5°C, 2016-2020 (primary| year-aligned| β=+0.29 OLSp=0.0037 sel=SLM selp=0.4642
+    tablets, 5 categories (primary)   | <5°C, 2016-2020 (primary| original cov| β=+0.42 OLSp=0.0000 sel=SLM selp=0.1607
+    tablets, 5 categories (primary)   | <5°C, FY2023            | year-aligned| β=+0.38 OLSp=0.0033 sel=SLM selp=0.0999
+    tablets, 5 categories (primary)   | <5°C, FY2023            | original cov| β=+0.49 OLSp=0.0000 sel=SLM selp=0.0148
+    tablets, 5 categories (primary)   | <10°C, FY2023           | year-aligned| β=-0.04 OLSp=0.6745 sel=SLM selp=0.0763
+    tablets, 5 categories (primary)   | <10°C, FY2023           | original cov| β=+0.06 OLSp=0.5477 sel=SLM selp=0.1403
+    all units, 5 categories (original | <5°C, 2016-2020 (primary| year-aligned| β=+0.28 OLSp=0.0042 sel=SLM selp=0.4557
+    all units, 5 categories (original | <5°C, 2016-2020 (primary| original cov| β=+0.41 OLSp=0.0000 sel=SLM selp=0.1394
+    all units, 5 categories (original | <5°C, FY2023            | year-aligned| β=+0.38 OLSp=0.0034 sel=SLM selp=0.0930
+    all units, 5 categories (original | <5°C, FY2023            | original cov| β=+0.48 OLSp=0.0000 sel=SLM selp=0.0122
+    all units, 5 categories (original | <10°C, FY2023           | year-aligned| β=-0.04 OLSp=0.6914 sel=SLM selp=0.0880
+    all units, 5 categories (original | <10°C, FY2023           | original cov| β=+0.06 OLSp=0.5313 sel=SLM selp=0.1731
+    tablets, category 214             | <5°C, 2016-2020 (primary| year-aligned| β=+0.26 OLSp=0.0195 sel=SLM selp=0.7455
+    tablets, category 214             | <5°C, 2016-2020 (primary| original cov| β=+0.42 OLSp=0.0001 sel=SLM selp=0.1872
+    tablets, category 214             | <5°C, FY2023            | year-aligned| β=+0.37 OLSp=0.0098 sel=SLM selp=0.1093
+    tablets, category 214             | <5°C, FY2023            | original cov| β=+0.50 OLSp=0.0001 sel=SLM selp=0.0094
+    tablets, category 214             | <10°C, FY2023           | year-aligned| β=-0.03 OLSp=0.7778 sel=SLM selp=0.0573
+    tablets, category 214             | <10°C, FY2023           | original cov| β=+0.08 OLSp=0.4033 sel=SLM selp=0.1285
+    all units, category 214           | <5°C, 2016-2020 (primary| year-aligned| β=+0.27 OLSp=0.0150 sel=SLM selp=0.6736
+    all units, category 214           | <5°C, 2016-2020 (primary| original cov| β=+0.43 OLSp=0.0001 sel=SLM selp=0.1561
+    all units, category 214           | <5°C, FY2023            | year-aligned| β=+0.38 OLSp=0.0077 sel=SLM selp=0.0832
+    all units, category 214           | <5°C, FY2023            | original cov| β=+0.51 OLSp=0.0001 sel=SLM selp=0.0064
+    all units, category 214           | <10°C, FY2023           | year-aligned| β=-0.02 OLSp=0.8036 sel=SLM selp=0.0622
+    all units, category 214           | <10°C, FY2023           | original cov| β=+0.08 OLSp=0.4051 sel=SLM selp=0.1290
+  --- 薬効分類別 ---
+    214 Antihypertensives            stdβ=+0.26 OLSp=0.0195 BH=0.0325 sel=SLM SLMp=0.7455 SEMp=0.1373
+    217 Vasodilators                 stdβ=+0.22 OLSp=0.0324 BH=0.0405 sel=SLM SLMp=0.5588 SEMp=0.0737
+    218 Antihyperlipidemics          stdβ=+0.33 OLSp=0.0016 BH=0.0078 sel=SLM SLMp=0.3463 SEMp=0.0322
+    219 Other cardiovascular agents  stdβ=+0.20 OLSp=0.1595 BH=0.1595 sel=OLS SLMp=0.3129 SEMp=0.0640
+    333 Anticoagulants               stdβ=+0.37 OLSp=0.0113 BH=0.0283 sel=OLS SLMp=0.0565 SEMp=0.0026
+  --- 追加交絡 ---
+    + BMI (checkup FY2022)                         n=47 stdβ=+0.27 OLSp=0.0032 sel=SLM SLMp=0.3796 SEMp=0.0329 VIFmax=2.7
+    + Smoking (checkup FY2022)                     n=47 stdβ=+0.17 OLSp=0.1130 sel=SLM SLMp=0.6075 SEMp=0.0850 VIFmax=3.2
+    + Systolic BP (checkup FY2022)                 n=47 stdβ=+0.27 OLSp=0.0207 sel=SLM SLMp=0.4972 SEMp=0.0448 VIFmax=2.6
+    + SBP >=140 mmHg % (checkup FY2022)            n=47 stdβ=+0.28 OLSp=0.0178 sel=SLM SLMp=0.4900 SEMp=0.0486 VIFmax=2.6
+    + BMI, smoking, systolic BP                    n=47 stdβ=+0.19 OLSp=0.1418 sel=SLM SLMp=0.5344 SEMp=0.0741 VIFmax=3.2
+    + Sodium intake (NHNS 2016; 46 prefectures)    n=46 stdβ=+0.26 OLSp=0.0092 sel=SLM SLMp=0.5214 SEMp=0.0457 VIFmax=2.8
+DONE

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# NOTE (2026-11-03): This script contains a row-order misalignment between the outcome vector and the spatial weights matrix
+# (Global Moran's I of 0.091 reported in the initial submission; the aligned value is 0.555). Its spatial results are superseded by
+# revision_R1/scripts/R2_01_analysis.py. See CORRECTIONS.md.
 """
 07_percapita_reanalysis.py
 CVD処方量を人口10万人あたりに正規化し、回帰分析・空間分析を再実行するスクリプト

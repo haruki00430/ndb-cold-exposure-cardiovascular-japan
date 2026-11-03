@@ -1,0 +1,3 @@
+Figure_1.jpg (3248, 1750) dpi= (500, 500) width_cm=16.5
+Figure_2.jpg (3248, 1450) dpi= (500, 500) width_cm=16.5
+Figure_3.jpg (3248, 1700) dpi= (500, 500) width_cm=16.5

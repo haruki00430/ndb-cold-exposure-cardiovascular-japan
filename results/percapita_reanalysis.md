@@ -1,3 +1,5 @@
+> **SUPERSEDED (2026-11-03):** This file reports results of the initial analysis (including the <10 °C wording and a misaligned spatial analysis). See [CORRECTIONS.md](../CORRECTIONS.md) and `revision_R1/`.
+
 # 人口あたりCVD処方量 再解析結果
 
 **目的変数**: CVD処方量（10万人あたり）

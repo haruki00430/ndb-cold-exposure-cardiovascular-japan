@@ -19,7 +19,11 @@ import numpy as np
 import time
 from pathlib import Path
 
-APP_ID = '8ee5a987b9ec70631de1977bde3afd7ebc11140d'
+# e-Stat アプリケーションIDはスクリプトに書かない（環境変数 E_STAT_APP_ID から読む）。
+import os
+APP_ID = os.environ.get('E_STAT_APP_ID', '').strip()
+if not APP_ID:
+    raise SystemExit('環境変数 E_STAT_APP_ID が未設定です。e-Statで取得したIDを環境変数に設定してから実行してください（IDをコードに書かないこと）。')
 BASE_URL = 'https://api.e-stat.go.jp/rest/3.0/app/json/getStatsData'
 SEARCH_URL = 'https://api.e-stat.go.jp/rest/3.0/app/json/getStatsList'
 

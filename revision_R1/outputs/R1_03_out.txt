@@ -1,0 +1,14 @@
+gdf の並びと df の並びが同一か: False（位置一致 0/47）
+Queen の孤立点数=2 -> KNN(k=4)へ切替=True
+[元スクリプトの手順(y=df順, w=gdf順)] Moran's I=0.0910, z_sim=1.246, p_sim=0.1230  → 原稿値 0.0910/1.316/0.114 を再現: True
+[並びを揃えた正しい手順(y=gdf順, w=gdf順)] Moran's I=0.5551, z_sim=6.431, p_sim=0.0010
+[元手順] LISA p<0.05（原稿: 富山HH/石川HH/三重LL/奈良LL）: [('三重県', 'LL'), ('奈良県', 'LL'), ('富山県', 'HH'), ('島根県', 'LL'), ('石川県', 'HH')]
+[正しい並び] LISA p<0.05: [('三重県', 'LL'), ('京都府', 'LL'), ('兵庫県', 'LL'), ('北海道', 'HH'), ('和歌山県', 'LL'), ('大阪府', 'LL'), ('奈良県', 'LL'), ('宮城県', 'HH'), ('山形県', 'HH'), ('岩手県', 'HH'), ('滋賀県', 'LL'), ('福島県', 'HH'), ('秋田県', 'HH'), ('青森県', 'HH')]
+  [元手順(df順のまま)] LM-Lag p=0.3969, LM-Error p=0.6096, RLM-Lag p=0.0971, RLM-Error p=0.1298
+  [並びを揃えた手順(gdf順)] LM-Lag p=0.0009, LM-Error p=0.0055, RLM-Lag p=0.0691, RLM-Error p=0.7670
+総量 Moran's I: 正しい並び=0.3109 (p_sim=0.0020) / df順=-0.1006 (p_sim=0.1670)  [原稿Discussion: I=0.311, p=0.003]
+  Table2 印刷値 rate-elderly_ratio=0.412: 一致する算出法 = なし
+  Table2 印刷値 rate-unemployment_rate=0.318: 一致する算出法 = なし
+  Table2 印刷値 rate-physicians_per_100k=0.185: 一致する算出法 = なし
+  Table2 印刷値 rate-income_per_capita=0.126: 一致する算出法 = なし
+DONE

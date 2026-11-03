@@ -30,7 +30,11 @@ CONFIG_FILE  = PROJECT_ROOT / 'config/config.yaml'
 with open(CONFIG_FILE, encoding='utf-8') as f:
     cfg = yaml.safe_load(f)
 
-E_STAT_APP_ID    = '8ee5a987b9ec70631de1977bde3afd7ebc11140d'
+# e-Stat アプリケーションIDはスクリプトに書かない（環境変数 E_STAT_APP_ID から読む）。
+import os
+E_STAT_APP_ID    = os.environ.get('E_STAT_APP_ID', '').strip()
+if not E_STAT_APP_ID:
+    raise SystemExit('環境変数 E_STAT_APP_ID が未設定です。e-Statで取得したIDを環境変数に設定してから実行してください（IDをコードに書かないこと）。')
 E_STAT_BASE_URL  = 'https://api.e-stat.go.jp/rest/3.0/app/json/getStatsData'
 
 ANALYSIS_FILE    = PROJECT_ROOT / 'data/interim/analysis_dataset.csv'

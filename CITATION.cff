@@ -1,26 +1,27 @@
 cff-version: 1.2.0
 message: "If you use this code or the derived datasets, please cite as below."
 type: software
-title: "Cold Month Exposure and Cardiovascular Disease Prescription Rate: Analysis Code (NDB Open Data, Japan)"
-version: 1.0.0
-date-released: 2026-06-28
+title: "Cold-Season Duration and Cardiovascular Drug Dispensing in Japan: Analysis Code (NDB Open Data)"
+version: 1.1.0
+date-released: 2026-11-03
 license: CC-BY-NC-ND-4.0
 url: "https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan"
 repository-code: "https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan"
-doi: 10.5281/zenodo.20997811
+doi: 10.5281/zenodo.20997810
 abstract: >-
   Reproducible analysis code for a prefecture-level ecological study (N = 47)
-  examining the association between cold month exposure (proportion of months
-  with mean temperature <10 °C) and cardiovascular disease prescription rates
-  in Japan, using NDB Open Data (10th release, FY2023) and Japan Meteorological
-  Agency climate data (reference period 2016–2020).
+  examining the association between cold-season duration (proportion of the 60
+  months in 2016-2020 with mean temperature below 5 degrees C) and cardiovascular
+  tablets dispensed per resident in Japan, using NDB Open Data (10th release,
+  FY2023) and Japan Meteorological Agency climate data. Release 1.1.0 corrects
+  errors in release 1.0.0 (see CORRECTIONS.md).
 keywords:
   - cardiovascular disease
   - cold exposure
   - NDB Open Data
   - Japan
   - ecological study
-  - prescription rate
+  - drug dispensing
   - spatial analysis
   - epidemiology
 authors:
@@ -35,8 +36,8 @@ authors:
 preferred-citation:
   type: article
   title: >-
-    Association between Cold Month Exposure and Cardiovascular Disease
-    Prescription Rate: A Nationwide Ecological Study in Japan
+    Cold-Season Duration and Cardiovascular Drug Dispensing Across Japanese
+    Prefectures: A Nationwide Ecological Study
   authors:
     - family-names: Saito
       given-names: Haruki
@@ -45,4 +46,4 @@ preferred-citation:
   journal: "Osong Public Health and Research Perspectives"
   year: 2026
   notes: "Manuscript under review; update volume/pages/DOI when published."
-  doi: 10.5281/zenodo.20997811  # update with journal DOI after acceptance
+

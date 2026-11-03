@@ -1,3 +1,5 @@
+> **SUPERSEDED (2026-11-03):** This file reports results of the initial analysis (including the <10 °C wording and a misaligned spatial analysis). See [CORRECTIONS.md](../CORRECTIONS.md) and `revision_R1/`.
+
 # 回帰分析結果
 
 **データ**: analysis_dataset.csv (N=47, 47都道府県)
