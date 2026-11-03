@@ -16,6 +16,10 @@ import R2_03_content as C
 sys.stdout.reconfigure(encoding="utf-8")
 import pathlib as _pl; sys.path.insert(0, str(_pl.Path(__file__).resolve().parent)); import paths as P
 R1 = C.R1
+# 公開コードに連絡先・DOIを直書きしない: 環境変数から取得（未設定なら説明文に置換）
+PHONE = os.environ.get("CORRESPONDING_AUTHOR_PHONE", "[telephone number: set CORRESPONDING_AUTHOR_PHONE]")
+CODE_REL = "v1.1.1"
+CODE_DOI = os.environ.get("CODE_RELEASE_DOI", "(see the Zenodo record of this release)")
 PKG = P.SUB_V4
 OUT = R1 / "package"; OUT.mkdir(exist_ok=True)
 REFMAP = json.load(open(R1 / "results" / "R2_reference_order.json", encoding="utf-8"))
@@ -115,12 +119,12 @@ def build_title_page():
     tr.rewrite(P[11], "Keywords: " + C.KEYWORDS)
     tr.rewrite(P[20], "<b>Availability of Data and Materials</b>: The 10th NDB Open Data are publicly available from the Ministry of Health, Labour and Welfare of Japan (https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000177221_00016.html). "
                       "Japan Meteorological Agency monthly observations are available from https://www.data.jma.go.jp/risk/obsdl/index.php. The processed prefecture-level dataset used in the analyses (exposure, outcome, and covariates for all 47 prefectures) is provided as Supplementary Table S1. "
-                      "Analysis code is available on GitHub (https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan; initial release archived on Zenodo, DOI: https://doi.org/10.5281/zenodo.20997811); "
-                      "[authors to complete: corrected release and its Zenodo DOI].")
+                      f"The analysis code, processed data, and results of the revised analysis are available on GitHub (https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan, directory revision_R1) and archived on Zenodo (release {CODE_REL}, DOI: https://doi.org/{CODE_DOI}). "
+                      f"The initial release (v1.0.0, DOI: https://doi.org/10.5281/zenodo.20997811) contained errors that are corrected in v1.1.0 and later releases (see CORRECTIONS.md in the repository).")
     er = next(r for r in P[8].runs if r.text.startswith("\nEmail"))                      # 責任著者の電話番号（投稿規定: 住所・電話・メール）
     new = copy.deepcopy(er._r); er._r.addnext(new)
     from docx.oxml.ns import qn as _qn
-    new.find(_qn("w:t")).text = "Telephone: +81-80-4436-3110"
+    new.find(_qn("w:t")).text = "Telephone: " + PHONE
     d.save(guard(OUT / "TitlePage_PHRP_v5.docx"))
 
 # ------------------------------------------------------------------ STROBE
@@ -370,13 +374,13 @@ def build_response(loc=lambda t: t):
       ("A5-2", "The Highlight on housing insulation as a cost-effective strategy is not examined; remove it or present it as a hypothesis.",
        "The Highlight was removed, and insulation is discussed only as a hypothesis.", "Highlights; Discussion, Possible Health-System Implications."),
       ("A6-1", "Move the AI disclosure to a Methods subsection, describe the extent of use, and how AI-assisted drafting and code were verified.",
-       "A subsection “Use of Generative AI” in Methods describes the use, which extended beyond language editing, and how the data were checked. Because the journal does not permit AI-assisted tools for creating or altering images, the subsection states exactly how the figures were made: plotting code was run on the numerical results; the code was written with AI assistance; no image was generated, edited, or retouched by AI. The cover letter asks the editorial office to confirm that this procedure is acceptable. The subsection also states that the authors reviewed and edited the AI-assisted code, numerical results, and text, and confirms that the AI-assisted text, code, and figures contain no plagiarism and that no AI-generated material is cited as a primary source (as the journal’s policy requires).",
+       "A subsection “Use of Generative AI” in Methods describes the use, which extended beyond language editing, and how the data were checked. Because the journal does not permit AI-assisted tools for creating or altering images, the subsection states exactly how the figures were made: plotting code was run on the numerical results; the code was written with AI assistance; no image was generated, edited, or retouched by AI. The cover letter repeats this disclosure. The subsection also states that the authors reviewed and edited the AI-assisted code, numerical results, and text, and confirms that the AI-assisted text, code, and figures contain no plagiarism and that no AI-generated material is cited as a primary source (as the journal’s policy requires).",
        "Methods, Use of Generative AI."),
       ("A6-2", "Use the journal’s reference style and renumber in order of first citation (reference 32 was cited before 13).",
        "References are numbered in square brackets in order of first citation, with up to three authors followed by “et al.”. The list was rebuilt (" + str(len(C.REFS)) + " references).", "References."),
       ("A6-3", "Ensure the title page includes ethics approval, conflicts of interest, funding, data availability, CRediT, and ORCID.", "The title page includes all of these items; the data availability statement was updated.", "Title page."),
       ("A6-4", "Share the processed prefecture-level dataset and analysis code.",
-       "The processed dataset is provided as Supplementary Table S1. The code is in the GitHub repository; a corrected release is [authors to complete: release and DOI].", "Title page; Supplementary Table S1."),
+       f"The processed dataset is provided as Supplementary Table S1. The corrected analysis code, the revised README, and a record of the corrections (CORRECTIONS.md) are published as release {CODE_REL} of the GitHub repository (https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan) and archived on Zenodo (DOI: {CODE_DOI}).", "Title page; Supplementary Table S1."),
     ]
     for no, cm, rs, ch in items: item(d, no, cm, rs, ch)
     d.add_heading("B. Recommended revisions", 3)
@@ -421,12 +425,14 @@ def build_response(loc=lambda t: t):
 def build_cover():
     d = Document()
     for s in d.sections: s.left_margin = s.right_margin = Cm(2.4)
-    for t in ["[Date of submission]", "", "Editor-in-Chief", "Osong Public Health and Research Perspectives", "Korea Disease Control and Prevention Agency", "", "Dear Professor Lee,", ""]: para(d, t)
+    for t in ["3 November 2026", "", "Editor-in-Chief", "Osong Public Health and Research Perspectives", "Korea Disease Control and Prevention Agency", "", "Dear Professor Lee,", ""]: para(d, t)
     para(d, f"Please find enclosed the revised version of our manuscript, OPHRP-2026-0484 (now titled “{C.TITLE}”), together with a point-by-point response to the reviewers. We thank you and the reviewers for the careful and constructive comments.")
     para(d, "In responding to Reviewer 3, we re-examined the original analysis scripts and data and found errors in the initial submission that change its conclusions: the exposure threshold was misreported (5°C over 60 months, not 10°C); the spatial autocorrelation analysis contained a data-alignment error, so Global Moran’s I and the LISA clusters were wrong and the claim of no spatial autocorrelation does not hold; the correlation matrix did not match the data; and two covariates were attributed to the wrong sources. We have corrected these and report them in the response letter and Supplementary Table S6.")
     para(d, "The revised analysis shows that a longer cold season is associated with larger quantities of cardiovascular tablets dispensed per resident in conventional regression, but that the association is not significant in the spatial lag model, which the standard decision rule preferred although the robust diagnostics did not clearly distinguish it from the spatial error model (in which the association is significant), and is attenuated after adjustment for smoking. We therefore present the findings as exploratory and hypothesis-generating, and we have revised the title, abstract, and conclusions accordingly.")
-    para(d, "The study used only publicly available aggregate data, and ethics review was not required. The authors declare no conflicts of interest. The use of generative AI, which extended beyond language editing, is described in the Methods, where the authors also confirm that the AI-assisted text, code, and figures contain no plagiarism and that no AI-generated material is cited as a primary source. The journal does not permit AI-assisted tools for creating or altering images. Our figures were drawn by running plotting code on the numerical data; the code was written with AI assistance, but no image was generated, edited, or retouched by AI. As this policy could be read to cover AI-assisted plotting code, we would be grateful if the editorial office could confirm that this procedure is acceptable; if it is not, we will redraw the figures with code written without AI assistance. The manuscript has not been published or submitted elsewhere. All authors have read and approved the revised manuscript.")
+    para(d, "The study used only publicly available aggregate data, and ethics review was not required. The authors declare no conflicts of interest. The use of generative AI, which extended beyond language editing, is described in the Methods, where the authors also confirm that the AI-assisted text, code, and figures contain no plagiarism and that no AI-generated material is cited as a primary source. The journal does not permit AI-assisted tools for creating or altering images. Our figures were drawn by running plotting code on the numerical data; the code was written with AI assistance, but no image was generated, edited, or retouched by AI. The manuscript has not been published or submitted elsewhere. All authors have read and approved the revised manuscript.")
     for t in ["", "Sincerely,", "", "Haruki Saito", "Department of Epidemiology, Fukushima Medical University School of Medicine", "1 Hikarigaoka, Fukushima-shi, Fukushima 960-1295, Japan", "Email: m211039@fmu.ac.jp", "ORCID: 0009-0009-7890-6068"]: para(d, t)
+    st = d.styles["Normal"]; st.font.size = Pt(10.5); st.paragraph_format.space_after = Pt(4); st.paragraph_format.line_spacing = 1.0     # 1ページに収める
+    for sec in d.sections: sec.top_margin = sec.bottom_margin = Cm(1.8); sec.left_margin = sec.right_margin = Cm(2.2)
     d.core_properties.title = "Cover letter (revision)"
     d.save(guard(OUT / "CoverLetter_R1.docx"))
 

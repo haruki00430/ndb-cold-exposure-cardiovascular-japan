@@ -12,7 +12,7 @@
 > **齋藤治輝, 大平哲也.** "Cold-Season Duration and Cardiovascular Drug Dispensing Across Japanese Prefectures: A Nationwide Ecological Study"（寒冷期の長さと都道府県別の循環器薬の調剤量：全国エコロジカルスタディ）  
 > *Osong Public Health and Research Perspectives*（改訂版を査読中、Manuscript ID OPHRP-2026-0484）
 
-> **重要 — 訂正版リリース（v1.1.0）**: リリース v1.0.0 と初回投稿には誤りがありました（寒冷月の閾値は 10°C と記載していましたが実際は 5°C・60か月。行の並びずれにより空間的自己相関がないように見えていました）。詳細は [CORRECTIONS.md](CORRECTIONS.md) に記載し、[`revision_R1/`](revision_R1/) で訂正しました。v1.0.0 の結果は使用しないでください。
+> **重要 — 訂正版リリース（v1.1.1。解析は v1.1.0 と同一）**: リリース v1.0.0 と初回投稿には誤りがありました（寒冷月の閾値は 10°C と記載していましたが実際は 5°C・60か月。行の並びずれにより空間的自己相関がないように見えていました）。詳細は [CORRECTIONS.md](CORRECTIONS.md) に記載し、[`revision_R1/`](revision_R1/) で訂正しました。v1.0.0 の結果は使用しないでください。
 
 ### 主要結果（改訂版・探索的でモデル依存）
 
@@ -38,7 +38,7 @@
 
 ## リポジトリ構成
 
-`revision_R1/` に改訂版の解析（v1.1.0、[revision_R1/README.md](revision_R1/README.md) 参照）があります。`03_Analysis/scripts/` は**初回の解析**で、`07_percapita_reanalysis.py` と `results/` 配下のファイルは訂正により置き換えられました。
+`revision_R1/` に改訂版の解析（v1.1.1、[revision_R1/README.md](revision_R1/README.md) 参照）があります。`03_Analysis/scripts/` は**初回の解析**で、`07_percapita_reanalysis.py` と `results/` 配下のファイルは訂正により置き換えられました。
 
 ```
 ndb-cold-exposure-cardiovascular-japan/

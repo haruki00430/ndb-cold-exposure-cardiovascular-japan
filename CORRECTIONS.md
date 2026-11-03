@@ -1,6 +1,6 @@
 # Corrections to the initial analysis (release v1.0.0)
 
-While preparing the revision of the manuscript (Osong Public Health and Research Perspectives), the original analysis scripts and data were re-examined. Several results of the initial analysis (release v1.0.0, and the first submission) were found to be incorrect. They are corrected in release **v1.1.0** (this release). The revised analysis is in [`revision_R1/`](revision_R1/).
+While preparing the revision of the manuscript (Osong Public Health and Research Perspectives), the original analysis scripts and data were re-examined. Several results of the initial analysis (release v1.0.0, and the first submission) were found to be incorrect. They are corrected in release **v1.1.0** and in the current release **v1.1.1**. v1.1.1 differs from v1.1.0 only in housekeeping (administrative files and contact details were removed from the repository); the analysis, data, and results are identical. The revised analysis is in [`revision_R1/`](revision_R1/).
 
 | # | Item | Initial analysis (v1.0.0 / first submission) | Correction (v1.1.0) |
 |---|------|------|------|

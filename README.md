@@ -11,7 +11,7 @@ This repository contains the analysis code, processed data, and supplementary ma
 
 > **Saito H, Ohira T.** "Cold-Season Duration and Cardiovascular Drug Dispensing Across Japanese Prefectures: A Nationwide Ecological Study." *Osong Public Health and Research Perspectives* (revision under review; manuscript ID OPHRP-2026-0484).
 
-> **Important — corrected release (v1.1.0).** Release v1.0.0 and the first submission contained errors (the cold-month threshold was reported as 10 °C but is 5 °C over 60 months; a row-order misalignment made the spatial autocorrelation appear absent). They are documented in [CORRECTIONS.md](CORRECTIONS.md) and corrected in [`revision_R1/`](revision_R1/). Please do not use the results of v1.0.0.
+> **Important — corrected release (v1.1.1; the analysis is identical to v1.1.0).** Release v1.0.0 and the first submission contained errors (the cold-month threshold was reported as 10 °C but is 5 °C over 60 months; a row-order misalignment made the spatial autocorrelation appear absent). They are documented in [CORRECTIONS.md](CORRECTIONS.md) and corrected in [`revision_R1/`](revision_R1/). Please do not use the results of v1.0.0.
 
 ### Key Findings (revised; exploratory and model-dependent)
 
@@ -37,7 +37,7 @@ This repository contains the analysis code, processed data, and supplementary ma
 
 ## Repository Structure
 
-`revision_R1/` contains the revised analysis (v1.1.0; see [revision_R1/README.md](revision_R1/README.md)). The scripts in `03_Analysis/scripts/` are the **initial analysis**; `07_percapita_reanalysis.py` and the files under `results/` are superseded.
+`revision_R1/` contains the revised analysis (v1.1.1; see [revision_R1/README.md](revision_R1/README.md)). The scripts in `03_Analysis/scripts/` are the **initial analysis**; `07_percapita_reanalysis.py` and the files under `results/` are superseded.
 
 ```
 ndb-cold-exposure-cardiovascular-japan/

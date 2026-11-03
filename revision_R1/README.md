@@ -1,4 +1,4 @@
-# revision_R1 — revised analysis (v1.1.0)
+# revision_R1 — revised analysis (v1.1.1)
 
 Analysis code, processed data, and results for the revised manuscript *Cold-Season Duration and Cardiovascular Drug Dispensing Across Japanese Prefectures: A Nationwide Ecological Study* (under review). See [../CORRECTIONS.md](../CORRECTIONS.md) for the corrections to the initial analysis.
 

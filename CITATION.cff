@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this code or the derived datasets, please cite as below."
 type: software
 title: "Cold-Season Duration and Cardiovascular Drug Dispensing in Japan: Analysis Code (NDB Open Data)"
-version: 1.1.0
+version: 1.1.1
 date-released: 2026-11-03
 license: CC-BY-NC-ND-4.0
 url: "https://github.com/haruki00430/ndb-cold-exposure-cardiovascular-japan"
@@ -13,8 +13,8 @@ abstract: >-
   examining the association between cold-season duration (proportion of the 60
   months in 2016-2020 with mean temperature below 5 degrees C) and cardiovascular
   tablets dispensed per resident in Japan, using NDB Open Data (10th release,
-  FY2023) and Japan Meteorological Agency climate data. Release 1.1.0 corrects
-  errors in release 1.0.0 (see CORRECTIONS.md).
+  FY2023) and Japan Meteorological Agency climate data. Releases 1.1.0 and 1.1.1
+  correct errors in release 1.0.0 (see CORRECTIONS.md).
 keywords:
   - cardiovascular disease
   - cold exposure
